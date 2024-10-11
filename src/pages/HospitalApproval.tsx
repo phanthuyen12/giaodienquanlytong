@@ -79,10 +79,19 @@ export default function HospitalApproval() {
   
       const result = await response.json();
       loadingSwal.close();
-
+      MySwal.fire({
+        title: 'Hospital success',
+        text: 'Add to Hospital in Success',
+        icon: 'success',
+      });
       console.log('Response from server:', result);
     } catch (error) {
       console.error('Có lỗi xảy ra khi tạo tổ chức:', error);
+      MySwal.fire({
+        title: ' Hospital error',
+        text: 'Add to Hospital in error',
+        icon: 'success',
+      });
     }
   };
   
