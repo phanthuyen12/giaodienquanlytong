@@ -55,9 +55,21 @@ const ManagementNetwork = () => {
   };
   
   const handleAddHospital = async () => {
+      const loadingSwal:any = MySwal.fire({
+      title: 'Please wait...',
+      text: 'New Hospital a group, please wait!',
+      icon: 'info',
+      allowOutsideClick: false, // Prevent closing the modal while loading
+      showConfirmButton: false, // Hide the confirmation button
+      didOpen: () => {
+        Swal.showLoading(); // Show the loading animation
+      }
+    });
     // API call to add a new hospital with admin information
    const result:any = await addHospital(adminInfo);
    console.log(result.success);
+    loadingSwal.close();
+
    if(result.success===true){
     MySwal.fire({
       title: 'Add to Hospital',

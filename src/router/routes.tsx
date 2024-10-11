@@ -7,6 +7,7 @@ const NewHospital = lazy(() => import('../pages/NewHospital'));
 const LoginBoxed = lazy(() => import('../pages/LoginBoxed'));
 const Error = lazy(() => import('../components/Error'));
 const HospitalApproval = lazy(() => import('../pages/HospitalApproval'));
+const HospitalManagent = lazy(() => import('../pages/HospitalManagent'));
 
 const routes = [
     // dashboard (protected)
@@ -33,6 +34,14 @@ const routes = [
         element: (
             <PrivateRoute>
                 <HospitalApproval />
+            </PrivateRoute>
+        ),
+    },
+    {
+        path: '/hospital-managent',
+        element: (
+            <PrivateRoute>
+                <HospitalManagent />
             </PrivateRoute>
         ),
     },
